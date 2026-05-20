@@ -17,6 +17,7 @@ interface FormState {
   channels: string;
   format: string;
   msg: string;
+  website: string;
 }
 
 const INITIAL_FORM: FormState = {
@@ -25,6 +26,7 @@ const INITIAL_FORM: FormState = {
   channels: 'Мережеве охоплення',
   format: '1/24',
   msg: '',
+  website: '',
 };
 
 export default function Contacts({ contacts }: { contacts: ContactsData }) {
@@ -107,7 +109,7 @@ export default function Contacts({ contacts }: { contacts: ContactsData }) {
                   className="direct__row"
                   href={d.href}
                   target={d.href.startsWith('https://t.me') ? '_blank' : undefined}
-                  rel={d.href.startsWith('https://t.me') ? 'noreferrer' : undefined}
+                  rel={d.href.startsWith('https://t.me') ? 'noopener noreferrer' : undefined}
                   role="listitem"
                   aria-label={`${d.label}: ${d.value}`}
                 >
@@ -203,6 +205,26 @@ export default function Contacts({ contacts }: { contacts: ContactsData }) {
                   onChange={(e) => set({ msg: e.target.value })}
                   placeholder="Цільова аудиторія, бажані дати, орієнтовний бюджет."
                   disabled={status === 'loading'}
+                />
+              </div>
+                <div
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  width: 1,
+                  height: 1,
+                  overflow: 'hidden',
+                }}
+              >
+                <label htmlFor="f-website">Website</label>
+                <input
+                  id="f-website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.website}
+                  onChange={(e) => set({ website: e.target.value })}
                 />
               </div>
               <div className="form-cta">

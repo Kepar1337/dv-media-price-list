@@ -59,7 +59,7 @@ export default function ChannelCard({ channel }: { channel: Channel }) {
             className="ch-card__link"
             href={channel.link}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             aria-label={`Відкрити канал ${channel.name} в Telegram`}
           >
             <ExtIcon /> {channel.handle}
