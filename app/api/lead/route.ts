@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendTelegram, isTelegramConfigured } from '@/lib/notifications/telegram';
-import { appendLeadToSheet, isSheetsConfigured } from '@/lib/notifications/sheets';
+import { appendLeadToNotion, isNotionConfigured } from '@/lib/notifications/notion';
 import { isRateLimited } from '@/lib/notifications/rateLimit';
 import type { LeadEntry } from '@/lib/notifications/types';
 
@@ -68,14 +68,14 @@ export async function POST(req: NextRequest) {
     ts: new Date().toISOString(),
   };
 
-  if (!isTelegramConfigured() && !isSheetsConfigured()) {
+  if (!isTelegramConfigured() && !isNotionConfigured()) {
     console.log('[lead]', JSON.stringify(entry));
     return NextResponse.json({ ok: true });
   }
 
   const results = await Promise.allSettled([
     isTelegramConfigured() ? sendTelegram(entry) : Promise.resolve(),
-    isSheetsConfigured() ? appendLeadToSheet(entry) : Promise.resolve(),
+    isNotionConfigured() ? appendLeadToNotion(entry) : Promise.resolve(),
   ]);
 
   const failures = results.filter((r) => r.status === 'rejected');
