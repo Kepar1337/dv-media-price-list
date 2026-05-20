@@ -2,12 +2,7 @@
 
 import { useState } from 'react';
 import type { FaqItem } from '@/data/pricing';
-
-const PlusIcon = () => (
-  <svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
-    <path d="M7 2v10M2 7h10" />
-  </svg>
-);
+import { PlusIcon } from './icons';
 
 export default function FAQ({ faq }: { faq: FaqItem[] }) {
   const [open, setOpen] = useState<number>(0);

@@ -1,13 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { ContactsData } from '@/data/pricing';
+import { SendIcon } from './icons';
 
-const SendIcon = () => (
-  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M14 2L7 9M14 2l-5 12-2-5-5-2 12-5z" />
-  </svg>
-);
+const STANDARD_CHANNEL_OPTIONS = [
+  'Один канал',
+  'Стартовий мікс',
+  'Мережеве охоплення',
+  'Діаспора',
+  'Повний цикл послуг',
+  'Поки не визначились',
+] as const;
+
+const STANDARD_FORMAT_OPTIONS = [
+  '1/24',
+  '2/48',
+  '2/без видалення',
+  'Нативна реклама',
+  'Поки не визначились',
+] as const;
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
 
@@ -35,6 +47,19 @@ export default function Contacts({ contacts }: { contacts: ContactsData }) {
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
 
   const set = (patch: Partial<FormState>) => setForm((prev) => ({ ...prev, ...patch }));
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const channel = params.get('channel');
+    const format = params.get('format');
+    if (!channel && !format) return;
+    setForm((prev) => ({
+      ...prev,
+      ...(channel ? { channels: channel } : {}),
+      ...(format ? { format } : {}),
+    }));
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -172,12 +197,12 @@ export default function Contacts({ contacts }: { contacts: ContactsData }) {
                     onChange={(e) => set({ channels: e.target.value })}
                     disabled={status === 'loading'}
                   >
-                    <option>Один канал</option>
-                    <option>Стартовий мікс</option>
-                    <option>Мережеве охоплення</option>
-                    <option>Діаспора</option>
-                    <option>Повний цикл послуг</option>
-                    <option>Поки не визначились</option>
+                    {!STANDARD_CHANNEL_OPTIONS.includes(
+                      form.channels as (typeof STANDARD_CHANNEL_OPTIONS)[number],
+                    ) && <option>{form.channels}</option>}
+                    {STANDARD_CHANNEL_OPTIONS.map((opt) => (
+                      <option key={opt}>{opt}</option>
+                    ))}
                   </select>
                 </div>
                 <div className="field">
@@ -188,11 +213,12 @@ export default function Contacts({ contacts }: { contacts: ContactsData }) {
                     onChange={(e) => set({ format: e.target.value })}
                     disabled={status === 'loading'}
                   >
-                    <option>1/24</option>
-                    <option>2/48</option>
-                    <option>2/без видалення</option>
-                    <option>Нативна реклама</option>
-                    <option>Поки не визначились</option>
+                    {!STANDARD_FORMAT_OPTIONS.includes(
+                      form.format as (typeof STANDARD_FORMAT_OPTIONS)[number],
+                    ) && <option>{form.format}</option>}
+                    {STANDARD_FORMAT_OPTIONS.map((opt) => (
+                      <option key={opt}>{opt}</option>
+                    ))}
                   </select>
                 </div>
               </div>

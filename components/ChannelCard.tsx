@@ -1,23 +1,13 @@
 import type { Channel } from '@/data/pricing';
 import { fmt } from '@/lib/format';
+import { StarIcon, SparkIcon, ExtIcon, ArrowIcon } from './icons';
+import { Flag } from './Flag';
 
-const StarIcon = () => (
-  <svg viewBox="0 0 14 14" width="12" height="12" fill="currentColor" aria-hidden="true">
-    <path d="M7 1l1.8 3.8 4.2.5-3.1 2.9.8 4.1L7 10.4 3.3 12.3l.8-4.1L1 5.3l4.2-.5L7 1z" />
-  </svg>
-);
-
-const SparkIcon = () => (
-  <svg viewBox="0 0 14 14" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M7 1v4M7 9v4M1 7h4M9 7h4" />
-  </svg>
-);
-
-const ExtIcon = () => (
-  <svg viewBox="0 0 14 14" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M5 2H2v10h10V9M8 2h4v4M12 2 7 7" />
-  </svg>
-);
+function bookingHref(channelName: string, format?: string): string {
+  const params = new URLSearchParams({ channel: channelName });
+  if (format) params.set('format', format);
+  return `/?${params.toString()}#contacts`;
+}
 
 function ChannelBadge({ tag }: { tag?: string }) {
   if (tag === 'top') {
@@ -66,7 +56,9 @@ export default function ChannelCard({ channel }: { channel: Channel }) {
           </a>
           <div className="ch-card__tags">
             <span className="chip">{channel.category}</span>
-            <span className="chip chip--geo">{channel.geoFlag} {channel.geo}</span>
+            <span className="chip chip--geo">
+              <Flag geo={channel.geo} /> {channel.geo}
+            </span>
           </div>
         </div>
       </div>
@@ -101,11 +93,19 @@ export default function ChannelCard({ channel }: { channel: Channel }) {
         </div>
         <div className="ch-price ch-price--native">
           <div className="ch-price__k">Нативна</div>
-          <a className="ch-price__req" href="#contacts">
+          <a className="ch-price__req" href={bookingHref(channel.name, 'Нативна реклама')}>
             За запитом
           </a>
         </div>
       </div>
+
+      <a
+        className="btn btn--sm btn--ghost ch-card__cta"
+        href={bookingHref(channel.name)}
+        aria-label={`Забронювати рекламу в каналі ${channel.name}`}
+      >
+        Забронювати <ArrowIcon />
+      </a>
     </article>
   );
 }

@@ -1,10 +1,5 @@
 import type { Service } from '@/data/pricing';
-
-const ArrowIcon = () => (
-  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M3 8h10M9 4l4 4-4 4" />
-  </svg>
-);
+import { ArrowIcon } from './icons';
 
 export default function Services({ services }: { services: Service[] }) {
   return (

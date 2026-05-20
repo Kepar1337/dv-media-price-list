@@ -681,6 +681,19 @@ button { font-family: inherit; }
   color: var(--text-2);
   background: rgba(255,255,255,0.03);
   border-color: var(--border-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.chip--geo svg {
+  border-radius: 1px;
+  outline: 1px solid rgba(255,255,255,0.08);
+}
+
+.ch-card__cta {
+  margin-top: 4px;
+  justify-content: center;
+  width: 100%;
 }
 
 .pl-foot {

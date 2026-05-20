@@ -1,17 +1,6 @@
 import type { Package } from '@/data/pricing';
 import { fmt } from '@/lib/format';
-
-const ArrowIcon = () => (
-  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M3 8h10M9 4l4 4-4 4" />
-  </svg>
-);
-
-const CheckIcon = () => (
-  <svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="check" aria-hidden="true">
-    <path d="M3 7.5 6 10.5 11.5 4" />
-  </svg>
-);
+import { ArrowIcon, CheckIcon } from './icons';
 
 export default function Packages({ packages }: { packages: Package[] }) {
   return (

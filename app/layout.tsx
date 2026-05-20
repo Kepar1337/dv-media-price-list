@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Inter_Tight, JetBrains_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { getSiteUrl } from '@/lib/siteUrl';
 import { pricingData } from '@/data/pricing';
 import '../styles/globals.css';
@@ -96,6 +98,8 @@ export default function RootLayout({
     >
       <body>
         {children}
+        <Analytics />
+        <SpeedInsights />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
