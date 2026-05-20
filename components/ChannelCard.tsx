@@ -52,7 +52,7 @@ export default function ChannelCard({ channel }: { channel: Channel }) {
             rel="noopener noreferrer"
             aria-label={`Відкрити канал ${channel.name} в Telegram`}
           >
-            <ExtIcon /> {channel.handle}
+            <ExtIcon /> Відкрити в Telegram
           </a>
           <div className="ch-card__tags">
             <span className="chip">{channel.category}</span>

@@ -33,7 +33,6 @@ export type ChannelTag = 'top' | 'er';
 
 export interface Channel {
   name: string;
-  handle: string;
   link: string;
   category: string;
   geo: string;
@@ -134,8 +133,7 @@ export const pricingData: PricingData = {
   channels: [
     {
       name: 'Доступна англійська',
-      handle: 't.me/dostupna_en',
-      link: 'https://t.me/+7bg9oCFsbeJmOWEy',
+      link: 'https://t.me/+qSQaB3mC2Ag1MGFi',
       category: 'Лінгвістика',
       geo: 'UA',
       subs: 134874,
@@ -146,7 +144,6 @@ export const pricingData: PricingData = {
     },
     {
       name: 'Головна афіша Києва',
-      handle: 't.me/afisha_kyiv',
       link: 'https://t.me/+G-XMfXddtmc1NjYy',
       category: 'Афіша',
       geo: 'UA',
@@ -157,8 +154,7 @@ export const pricingData: PricingData = {
     },
     {
       name: '5 слів англійською',
-      handle: 't.me/5words_en',
-      link: 'https://t.me/+zQ15HQ2WTLplMGUy',
+      link: 'https://t.me/+kswR1NM2fmBmNGUy',
       category: 'Лінгвістика',
       geo: 'UA',
       subs: 63288,
@@ -168,7 +164,6 @@ export const pricingData: PricingData = {
     },
     {
       name: 'Доступна німецька',
-      handle: 't.me/dostupna_de',
       link: 'https://t.me/+7Y_gWhgBtLcwODJi',
       category: 'Лінгвістика',
       geo: 'UA',
@@ -179,7 +174,6 @@ export const pricingData: PricingData = {
     },
     {
       name: 'Англійська у смартфоні',
-      handle: 't.me/english_phone',
       link: 'https://t.me/+0YTwFyvS2Mg4Yjdi',
       category: 'Лінгвістика',
       geo: 'UA',
@@ -190,7 +184,6 @@ export const pricingData: PricingData = {
     },
     {
       name: 'Антисуржик',
-      handle: 't.me/anty_surzhyk',
       link: 'https://t.me/anty_surzhyk',
       category: 'Лінгвістика',
       geo: 'UA',
@@ -202,7 +195,6 @@ export const pricingData: PricingData = {
     },
     {
       name: 'Німеччина | Діаспора',
-      handle: 't.me/germany_dias',
       link: 'https://t.me/+45m7tw4Ng5c1YTEy',
       category: 'Діаспора',
       geo: 'DE',
@@ -213,7 +205,6 @@ export const pricingData: PricingData = {
     },
     {
       name: 'Доступна освіта',
-      handle: 't.me/dostupna_edu',
       link: 'https://t.me/+4XviiWWCstMzYWI6',
       category: 'Освіта',
       geo: 'UA',
@@ -224,8 +215,7 @@ export const pricingData: PricingData = {
     },
     {
       name: 'Цікавий Київ ⚡️ Афіша',
-      handle: 't.me/kyiv_afisha',
-      link: 'https://t.me/+AAAAAEOEzh7xVfgnL-88TA',
+      link: 'https://t.me/+FZOfKhOqYZQzNGIy',
       category: 'Афіша',
       geo: 'UA',
       subs: 23607,
@@ -235,7 +225,6 @@ export const pricingData: PricingData = {
     },
     {
       name: 'Українська діаспора | Українці в Європі',
-      handle: 't.me/diaspora_ukraine',
       link: 'https://t.me/diaspora_ukraine',
       category: 'Діаспора',
       geo: 'EU',
@@ -246,7 +235,6 @@ export const pricingData: PricingData = {
     },
     {
       name: 'Головна афіша Львова',
-      handle: 't.me/afisha_lviv',
       link: 'https://t.me/+l8gAC1q6ihA4NTIy',
       category: 'Афіша',
       geo: 'UA',
@@ -257,7 +245,6 @@ export const pricingData: PricingData = {
     },
     {
       name: 'А ти знав?',
-      handle: 't.me/a_ty_znav_ua',
       link: 'https://t.me/a_ty_znav_ua',
       category: 'Факти',
       geo: 'UA',
@@ -269,8 +256,7 @@ export const pricingData: PricingData = {
     },
     {
       name: 'Польща | Діаспора',
-      handle: 't.me/polish_diaspora',
-      link: 'https://t.me/polish_diaspora',
+      link: 'https://t.me/+V2k55kCqTW5jZWJi',
       category: 'Діаспора',
       geo: 'PL',
       subs: 6929,
