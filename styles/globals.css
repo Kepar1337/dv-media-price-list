@@ -1270,11 +1270,33 @@ button { font-family: inherit; }
   .form-row { grid-template-columns: 1fr; }
   .section-head { flex-direction: column; align-items: flex-start; }
   .section-head .section-lede { max-width: 100%; }
+  .section-title { font-size: 26px; line-height: 1.18; }
   .pkg__price-row { flex-direction: column; align-items: flex-start; gap: 8px; }
   .pkg__turnaround { text-align: left; }
   .pl-controls { flex-direction: column; align-items: flex-start; gap: 16px; }
   .hdr__inner { gap: 12px; }
+  .hdr .btn--ghost { display: none; }
   .brand__tag { display: none; }
+  .theme-toggle { width: 36px; height: 36px; }
+  .hero h1 {
+    font-size: 36px;
+    line-height: 1.1;
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
   .formats { grid-template-columns: 1fr; }
   .pl-foot { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .ftr { flex-direction: column; align-items: flex-start; text-align: left; }
+}
+
+@media (max-width: 480px) {
+  .form-cta { flex-direction: column; align-items: stretch; }
+  .form-cta small { margin-right: 0; }
+  .form-cta .btn { width: 100%; }
+}
+
+@media (max-width: 420px) {
+  .brand__name { display: none; }
+  .hero h1 { font-size: 32px; }
+  .section-title { font-size: 24px; }
 }
