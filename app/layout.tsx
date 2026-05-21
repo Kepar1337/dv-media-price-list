@@ -91,11 +91,18 @@ export default function RootLayout({
       .map((c) => c.href),
   };
 
+  const themeBootstrap = `(function(){try{var t=localStorage.getItem('dv-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='light'?'#FAFAFA':'#09090B';}catch(e){}})();`;
+
   return (
     <html
       lang="uk"
+      data-theme="dark"
+      suppressHydrationWarning
       className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
+      </head>
       <body>
         {children}
         <Analytics />

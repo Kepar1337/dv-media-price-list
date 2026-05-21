@@ -1,5 +1,6 @@
 import type { BrandData } from '@/data/pricing';
 import { ArrowIcon } from './icons';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header({ brand }: { brand: BrandData }) {
   return (
@@ -19,6 +20,7 @@ export default function Header({ brand }: { brand: BrandData }) {
           <a href="#contacts">Контакти</a>
         </nav>
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <ThemeToggle />
           <a className="btn btn--sm btn--ghost" href="#pricing">Каталог</a>
           <a className="btn btn--sm btn--primary" href="#contacts">
             Забронювати <ArrowIcon />
